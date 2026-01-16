@@ -1,9 +1,10 @@
+import MetricsLayout from '../layouts/Metrics';
+
 function App() {
   return (
-    <>
-      <div className="card">
-      </div>
-    </>
+    <div className="w-full">
+      <MetricsLayout />
+    </div>
   )
 }
 

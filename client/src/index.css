@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #BABABA;
+  --color-secondary: #FCFCFC;
+  --color-bg-page: #212121;
+  --color-bg-primary: #212121;
+  --color-bg-secondary: #1a1a1a;
+  --color-border-table: #5F5F5F;
+  --color-badge-online-bg: #063207;
+  --color-badge-online-border: #C3F5CD80;
+  --color-badge-offline-bg: #F1F1F333;
+  --color-badge-offline-border: #BABABA33;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,4 +26,43 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* MUI DataTable customization */
+.MuiPaper-root,
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #212121 !important;
+}
+
+.MuiTypography-root,
+.MuiSelect-iconStandard,
+.MuiButtonBase-root,
+.MuiToolbar-root,
+.MuiPaper-root,
+.MuiCheckbox-root {
+  color: #BABABA !important;
+}
+
+.MuiSvgIcon-root {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.MuiTypography-root {
+  font-weight: bold !important;
+}
+
+.MuiTableCell-root {
+  border-bottom: 1px solid #BABABA !important;
+}
+
+.MuiCheckbox-root.Mui-checked,
+.MuiTouchRipple-root {
+  color: #7B99FF !important;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  color: #FCFCFC !important;
+  font-weight: bold !important;
+  font-size: 11px;
 }

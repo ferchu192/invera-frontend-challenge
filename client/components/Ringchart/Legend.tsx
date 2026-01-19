@@ -6,11 +6,12 @@ interface LegendProps {
   total: number;
 }
 
-export const Legend: React.FC<LegendProps> = ({ rings, total }) => {
+export const Legend: React.FC<LegendProps> = ({ rings }) => {
   return (
     <div className="flex flex-col gap-3">
       {rings.map((ring, index) => {
-        const percentage = Math.round((ring.value / total) * 100);
+        const percentage = Math.round(ring.value * 100);
+        // Math.round((ring.value / total) * 100);
 
         return (
           <div key={index} className="grid grid-cols-[1fr_auto] items-center gap-4 min-w-[200px]">

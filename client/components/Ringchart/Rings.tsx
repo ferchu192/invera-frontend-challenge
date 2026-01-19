@@ -10,6 +10,16 @@ interface RingsProps {
   gapBetweenRings?: number;
 }
 
+const formatNumberShort = (num: number): string => {
+  if (num >= 1000000) {
+    return Math.round(num / 1000000) + 'M';
+  }
+  if (num >= 1000) {
+    return Math.round(num / 1000) + 'K';
+  }
+  return num.toString();
+}
+
 export const Rings: React.FC<RingsProps> = ({
   rings,
   total,
@@ -43,7 +53,8 @@ export const Rings: React.FC<RingsProps> = ({
       <svg width={size} height={size} className="overflow-visible">
         {rings.map((ring, index) => {
           const radius = center - (ringWidth / 2) - (index * (ringWidth + gapBetweenRings));
-          const percentage = Math.min(ring.value / ring.maxValue, 1);
+          const value = ring.value;
+          // Math.min(ring.value / ring.maxValue, 1);
 
           return (
             <g key={index}>
@@ -58,9 +69,9 @@ export const Rings: React.FC<RingsProps> = ({
               />
 
               {/* Colored ring (value) */}
-              {percentage > 0 && (
+              {value > 0 && (
                 <path
-                  d={createRingPath(radius, percentage)}
+                  d={createRingPath(radius, value)}
                   fill="none"
                   stroke={ring.color}
                   strokeWidth={ringWidth}
@@ -77,7 +88,7 @@ export const Rings: React.FC<RingsProps> = ({
           textAnchor="middle"
           className="text-[28px] font-bold fill-white"
         >
-          {total}
+          {formatNumberShort(total)}
         </text>
         <text
           x={center}

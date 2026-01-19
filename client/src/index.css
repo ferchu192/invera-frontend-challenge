@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #BABABA;
+  --color-secondary: #FCFCFC;
+  --color-bg-page: #212121;
+  --color-bg-primary: #212121;
+  --color-bg-secondary: #1a1a1a;
+  --color-border-table: #5F5F5F;
+  --color-badge-online-bg: #063207;
+  --color-badge-online-border: #C3F5CD80;
+  --color-badge-offline-bg: #F1F1F333;
+  --color-badge-offline-border: #BABABA33;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -17,56 +28,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* MUI DataTable customization */
+.MuiPaper-root,
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #212121 !important;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.MuiTypography-root,
+.MuiSelect-iconStandard,
+.MuiButtonBase-root,
+.MuiToolbar-root,
+.MuiPaper-root,
+.MuiCheckbox-root {
+  color: #BABABA !important;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.MuiSvgIcon-root {
+  width: 15px !important;
+  height: 15px !important;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.MuiTypography-root {
+  font-weight: bold !important;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.MuiTableCell-root {
+  border-bottom: 1px solid #BABABA !important;
+}
+
+.MuiCheckbox-root.Mui-checked,
+.MuiTouchRipple-root {
+  color: #7B99FF !important;
+}
+
+.MuiTableHead-root .MuiTableCell-root {
+  color: #FCFCFC !important;
+  font-weight: bold !important;
+  font-size: 11px;
 }

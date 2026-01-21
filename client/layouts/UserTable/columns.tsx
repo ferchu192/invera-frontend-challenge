@@ -1,12 +1,12 @@
 // Interface
-import { UserBadgeProps } from '../Badges/User';
+import { UserBadgeProps } from '../../components/Badges/User';
 
 // Components
-import UserBadge from '../Badges/User';
-import CompanyBadge from '../Badges/Company';
-import StatusBadge from '../Badges/Status';
-import ColumnHeader from './ColumnHeader';
-import ActionColumn from './ActionColumn';
+import UserBadge from '../../components/Badges/User';
+import CompanyBadge from '../../components/Badges/Company';
+import StatusBadge from '../../components/Badges/Status';
+import ColumnHeader from '../../components/Table/ColumnHeader';
+import ActionColumn from '../../components/Table/ActionColumn';
 
 export const userColumns = [
   {

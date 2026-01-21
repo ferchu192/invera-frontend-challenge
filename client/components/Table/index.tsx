@@ -1,22 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 // Components
-import MUIDataTable from "mui-datatables";
+import MUIDataTable, { MUIDataTableOptions } from "mui-datatables";
 import { TextField, Box, Typography, InputAdornment } from '@mui/material';
 
 // Footer
 // import CustomFooter from './CustomFooter';
 
-import { userColumns as columns } from './columns';
+interface ColumnOptions {
+  customHeadLabelRender?: () => JSX.Element;
+  customBodyRender?: (value: any, tableMeta?: any, updateValue?: any) => JSX.Element | string;
+  sort?: boolean;
+}
+
+interface Column {
+  name: string;
+  label: string;
+  options?: ColumnOptions;
+}
 
 interface TableProps {
   title: string;
   data: any;
-  changeQueryParams: (limit: number, pageNumber: number) => void,
+  changeQueryParams: ({ limit, pageNumber, searchText }: { limit?: number; pageNumber?: number; searchText?: string }) => void,
   total: number,
   loading: boolean,
-  //   columns: any;
+  columns: Column[];
 }
 
 const Table = ({
@@ -25,10 +35,20 @@ const Table = ({
   changeQueryParams,
   total,
   loading,
-  //   columns,
+  columns,
 }: TableProps) => {
-  const [queryParams, setQueryParams] = useState<any>();
   const [searchText, setSearchText] = useState<string>('');
+
+  /*
+    -------------------- SEARCH --------------------
+  */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      changeQueryParams({ limit: rowsPerPage, pageNumber: page + 1, searchText });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchText]);
 
   /*
     -------------------- PAGINATION --------------------
@@ -38,18 +58,18 @@ const Table = ({
 
   const handleOnchangePage = (newPage: number) => {
     setPage(newPage);
-    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage + 1 })
+    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage + 1, searchText })
   };
 
   const handleOnchangeRowsPerPage = (numberOfRows: number) => {
     setRowsPerPage(numberOfRows);
-    changeQueryParams({ limit: numberOfRows, pageNumber: page + 1 })
+    changeQueryParams({ limit: numberOfRows, pageNumber: page + 1, searchText })
   };
 
   /*
     -------------------- TABLE OPTIONS --------------------
   */
-  const options = useMemo(() => ({
+  const options: MUIDataTableOptions = useMemo(() => ({
     filter: false,
     sort: false,
     search: false,

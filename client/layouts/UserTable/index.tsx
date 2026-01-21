@@ -6,8 +6,7 @@ import Table from '../../components/Table';
 
 // Hooks
 import { useUsers } from '../../src/hooks/useUsers';
-
-import { userColumns as columns } from '../../components/Table/columns';
+import { userColumns as columns } from './columns';
 
 // Helpers
 import { getRandomIntInclusive } from '../../helpers/helper';
@@ -21,10 +20,11 @@ const UserTable = () => {
     -------------------- PAGINATION --------------------
   */
   // Update de queryParams
-  const changeQueryParams = ({ limit, pageNumber } : { limit?: number, pageNumber?: number }) => {
+  const changeQueryParams = ({ limit, pageNumber, searchText } : { limit?: number, pageNumber?: number, searchText?: string }) => {
     useData.refetch({
       _page: pageNumber,
       _limit: limit,
+      q: searchText,
     });
   }
 

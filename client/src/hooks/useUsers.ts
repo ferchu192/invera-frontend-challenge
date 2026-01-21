@@ -8,6 +8,7 @@ interface UseUsersResult {
   error: Error | null;
   refetch: (queryParams: PaginationParams) => void;
   fetchUser: (id: number | string | null) => void;
+  deleteUser: (id: number | string) => Promise<void>;
 }
 
 /**
@@ -20,11 +21,13 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
+  const [currentParams, setCurrentParams] = useState<PaginationParams>(params || { _page: 0, _limit: 10 });
 
   const fetchUsers = async (queryParams: PaginationParams) => {
     try {
       setLoading(true);
       setError(null);
+      setCurrentParams(queryParams);
       const data = await api.users.getAll(queryParams);
       setUsers(data);
     } catch (err) {
@@ -53,6 +56,21 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
     }
   };
 
+  const deleteUser = async (id: number | string) => {
+    try {
+      setLoading(true);
+      setError(null);
+      await api.users.delete(id);
+      // Refetch users with current params
+      await fetchUsers(currentParams);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error('Failed to delete user'));
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (!params) {
       fetchUsers({
@@ -68,5 +86,6 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
     error,
     refetch: fetchUsers,
     fetchUser,
+    deleteUser,
   };
 };

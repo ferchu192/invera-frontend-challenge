@@ -7,8 +7,9 @@ import CompanyBadge from '../../components/Badges/Company';
 import StatusBadge from '../../components/Badges/Status';
 import ColumnHeader from '../../components/Table/ColumnHeader';
 import ActionColumn from '../../components/Table/ActionColumn';
+import { ActionProps } from '../../components/Table/ActionColumn';
 
-export const userColumns = [
+export const userColumns = (onDelete: (id: number | string) => Promise<void>) => [
   {
     name: 'user',
     label: 'Name',
@@ -65,11 +66,13 @@ export const userColumns = [
     }
   },
   {
-    name: '',
+    name: 'actions',
     label: '',
     options: {
       sort: false,
-      customBodyRender: () => <ActionColumn />,
+      customBodyRender: (value: ActionProps) => {
+        return <ActionColumn id={value.id} name={value.name} onDelete={onDelete} />
+      },
     }
   },
 ];

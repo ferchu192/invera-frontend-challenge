@@ -23,7 +23,6 @@ export const useUserTypes = (): UseUserTypesResult => {
       setLoading(true);
       setError(null);
       const data = await api.userTypes();
-    console.log('---> data: ', data);
       setUserTypes(data);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch user types'));

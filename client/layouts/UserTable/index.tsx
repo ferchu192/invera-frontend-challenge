@@ -6,7 +6,7 @@ import Table from '../../components/Table';
 
 // Hooks
 import { useUsers } from '../../src/hooks/useUsers';
-import { userColumns as columns } from './columns';
+import { userColumns } from './columns';
 
 // Helpers
 import { getRandomIntInclusive } from '../../helpers/helper';
@@ -15,6 +15,7 @@ const UserTable = () => {
   const useData = useUsers();
 
   const [data, setData] = useState<any>();
+  const columns = userColumns(useData.deleteUser);
 
   /*
     -------------------- PAGINATION --------------------
@@ -54,13 +55,19 @@ const UserTable = () => {
         user: {
           name: user.name,
           email: user.email,
-          icon: getRandomIntInclusive(),
+          icon: getRandomIntInclusive(user.id),
         },
         phone: user.phone,
         location: user.location,
-        company: user.company,
+        company: {
+          name: user.company,
+          id: user.id,
+        },
         status: user.status,
-        actions: 'View Details',
+        actions: {
+          id: user.id,
+          name: user.name,
+        },
       }));
       setData(r);
     }

@@ -1,87 +1,49 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useMemo } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useMemo } from 'react';
 
 // Components
 import MUIDataTable from "mui-datatables";
 import { TextField, Box, Typography, InputAdornment } from '@mui/material';
 
 // Footer
-import CustomFooter from './CustomFooter';
+// import CustomFooter from './CustomFooter';
 
 import { userColumns as columns } from './columns';
 
 interface TableProps {
   title: string;
+  data: any;
+  changeQueryParams: (limit: number, pageNumber: number) => void,
+  total: number,
+  loading: boolean,
   //   columns: any;
 }
 
-const DATA = [
-  {
-    "user": { "name": "John Doe", "email": "john@example.com", "icon": "avatar_1" },
-    "phone": "(123) 456-7890",
-    "location": "New York",
-    "company": "Google",
-    "status": "ONLINE",
-    "actions": "View Details"
-  },
-  {
-    "user": { "name": "Jana Doe", "email": "john@example.com", "icon": "avatar_2" },
-    "phone": "(123) 456-7890",
-    "location": "New York",
-    "company": "YouTube",
-    "status": "OFFLINE",
-    "actions": "View Details"
-  },
-  {
-    "user": { "name": "John Doe", "email": "john@example.com", "icon": "avatar_3" },
-    "phone": "(123) 456-7890",
-    "location": "New York",
-    "company": "Facebook",
-    "status": "OFFLINE",
-    "actions": "View Details"
-  },
-  {
-    "user": { "name": "Jone Doe", "email": "john@example.com", "icon": "avatar_3" },
-    "phone": "(123) 456-7890",
-    "location": "New York",
-    "company": "Twitter",
-    "status": "ONLINE",
-    "actions": "View Details"
-  },
-]
-
 const Table = ({
   title,
+  data,
+  changeQueryParams,
+  total,
+  loading,
   //   columns,
 }: TableProps) => {
-  const [data, setData] = useState<any>(DATA);
   const [queryParams, setQueryParams] = useState<any>();
-  const [loading, setLoading] = useState<boolean>();
   const [searchText, setSearchText] = useState<string>('');
 
   /*
-  -------------------- PAGINATION --------------------
+    -------------------- PAGINATION --------------------
+  */
   const [page, setPage] = useState<number>(0);
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
 
-  // Update de queryParams
-  const changeQueryParams = ({ limit, pageNumber } : { limit?: number, pageNumber?: number }) => {
-    setQueryParams((prevState: any) => ({
-      ...prevState,
-      offset: pageNumber ? pageNumber * rowsPerPage : page,
-      limit: limit ? limit : rowsPerPage,
-    }))
-  }
-
-  const onChangePage = (newPage : number) => {
+  const handleOnchangePage = (newPage: number) => {
     setPage(newPage);
-    changeQueryParams({ pageNumber: newPage });
+    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage })
   };
 
-  const onChangeRowsPerPage = (numberOfRows: number) => {
+  const handleOnchangeRowsPerPage = (numberOfRows: number) => {
     setRowsPerPage(numberOfRows);
-    changeQueryParams({ limit: numberOfRows });
+    changeQueryParams({ limit: numberOfRows, pageNumber: page })
   };
 
   /*
@@ -96,27 +58,12 @@ const Table = ({
     download: false,
     print: false,
     viewColumns: false,
-    // selectableRows: 'none',
-    page: 0,
-    rowsPerPage: 10,
-    // serverSide: true,
-    // onChangePage,
-    // onChangeRowsPerPage,
-    // customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage, textLabels) => {
-    //   return (
-    //     <CustomFooter
-    //       page={page}
-    //       rowsPerPage={rowsPerPage}
-    //       changeRowsPerPage={changeRowsPerPage}
-    //       changePage={changePage}
-    //       textLabels={textLabels}
-    //       onChangePage={onChangePage}
-    //       onChangeRowsPerPage={onChangeRowsPerPage}
-    //       hasNextPage
-    //     />
-    //   );
-    // },
-    customToolbar: () => null,
+    serverSide: true,
+    count: total,
+    page,
+    rowsPerPage,
+    onChangePage: handleOnchangePage,
+    onChangeRowsPerPage: handleOnchangeRowsPerPage,
     setRowProps: (row: any, dataIndex: number) => ({
       style: {
         backgroundColor: dataIndex % 2 === 0 ? '#212121' : '#1a1a1a',
@@ -128,38 +75,7 @@ const Table = ({
         noMatch: ' ',
       },
     },
-  }), [loading, searchText]);
-
-  /*
-    -------------------- FETCHING --------------------
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const parsed = await getTransfers(queryParams, state.chain);
-      setData(parsed);
-    } catch (error) {
-      console.error("Error fetching user profile", error);
-      throw error;
-    }
-    actions.endRefetch();
-    setLoading(false);
-  }
-
-  // En caso de que se oprima el boton de GET DATA
-  useEffect(() => {
-    if (state.refetch) {
-      changeQueryParams({
-        limit: rowsPerPage,
-        pageNumber: 0,
-        chain: state.chain.chain,
-        address: state.address,
-      })
-    }
-  }, [state.refetch]);
-
-  useEffect(() => {
-    if (queryParams) fetchData();
-  }, [queryParams]);
+  }), [loading, searchText, page, rowsPerPage, total]);
 
   /*
     -------------------- CUSTOM TITLE --------------------
@@ -167,8 +83,7 @@ const Table = ({
   const customTitle = (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       <Typography variant="h6" component="div" sx={{ color: '#fff' }}>
-        All Users
-         {/* {title} */}
+        {title}
       </Typography>
       <TextField
         placeholder="Search for..."
@@ -232,20 +147,5 @@ const Table = ({
     </div>
   )
 }
-
-const colummnObjectShape = {
-  name: PropTypes.string,
-  label: PropTypes.string,
-  options: PropTypes.object,
-};
-
-Table.defaultProps = {
-  title: 'All Users',
-};
-
-Table.propTypes = {
-  title: PropTypes.string,
-  columns: PropTypes.arrayOf(PropTypes.shape(colummnObjectShape)).isRequired,
-};
 
 export default Table;

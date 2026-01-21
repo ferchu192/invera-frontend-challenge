@@ -6,7 +6,8 @@ interface UseUsersResult {
   users: User[];
   loading: boolean;
   error: Error | null;
-  refetch: () => void;
+  refetch: (queryParams: PaginationParams) => void;
+  fetchUser: (id: number | string | null) => void;
 }
 
 /**
@@ -16,14 +17,15 @@ interface UseUsersResult {
  */
 export const useUsers = (params?: PaginationParams): UseUsersResult => {
   const [users, setUsers] = useState<User[]>([]);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchUsers = async () => {
+  const fetchUsers = async (queryParams: PaginationParams) => {
     try {
       setLoading(true);
       setError(null);
-      const data = await api.users.getAll(params);
+      const data = await api.users.getAll(queryParams);
       setUsers(data);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch users'));
@@ -32,8 +34,32 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
     }
   };
 
+  const fetchUser = async (id: number | string | null) => {
+    if (!id) {
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await api.users.getById(id);
+      setUser(data);
+      return data;
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error('Failed to fetch user'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetchUsers();
+    if (!params) {
+      fetchUsers({
+        _page: 0,
+        _limit: 10,
+      })
+    } else fetchUsers(params);
   }, [JSON.stringify(params)]);
 
   return {
@@ -41,5 +67,6 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
     loading,
     error,
     refetch: fetchUsers,
+    fetchUser,
   };
 };

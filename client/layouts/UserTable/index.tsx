@@ -9,6 +9,9 @@ import { useUsers } from '../../src/hooks/useUsers';
 
 import { userColumns as columns } from '../../components/Table/columns';
 
+// Helpers
+import { getRandomIntInclusive } from '../../helpers/helper';
+
 const UserTable = () => {
   const useData = useUsers();
 
@@ -37,7 +40,7 @@ const UserTable = () => {
         user: {
           name: user.name,
           email: user.email,
-          icon: user.id,
+          icon: getRandomIntInclusive(),
         },
         phone: user.phone,
         location: user.location,
@@ -65,7 +68,6 @@ const UserTable = () => {
         columns={columns}
         changeQueryParams={changeQueryParams}
         total={50}
-        // options={options}
       />
     </div>
   )

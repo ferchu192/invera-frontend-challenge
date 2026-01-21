@@ -38,12 +38,12 @@ const Table = ({
 
   const handleOnchangePage = (newPage: number) => {
     setPage(newPage);
-    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage })
+    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage + 1 })
   };
 
   const handleOnchangeRowsPerPage = (numberOfRows: number) => {
     setRowsPerPage(numberOfRows);
-    changeQueryParams({ limit: numberOfRows, pageNumber: page })
+    changeQueryParams({ limit: numberOfRows, pageNumber: page + 1 })
   };
 
   /*
@@ -59,9 +59,11 @@ const Table = ({
     print: false,
     viewColumns: false,
     serverSide: true,
+    responsive: 'standard',
     count: total,
     page,
     rowsPerPage,
+    elevation: 0,
     onChangePage: handleOnchangePage,
     onChangeRowsPerPage: handleOnchangeRowsPerPage,
     setRowProps: (row: any, dataIndex: number) => ({
@@ -82,7 +84,7 @@ const Table = ({
   */
   const customTitle = (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-      <Typography variant="h6" component="div" sx={{ color: '#fff' }}>
+      <Typography variant="h6" component="div" className='!text-secondary'>
         {title}
       </Typography>
       <TextField
@@ -103,7 +105,7 @@ const Table = ({
           height: '42px',
           fontSize: '12px',
           '@media (max-width: 430px)': {
-            width: '217px',
+            width: '200px',
           },
           '& .MuiOutlinedInput-root': {
             height: '42px',

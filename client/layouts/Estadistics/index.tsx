@@ -28,7 +28,7 @@ function Estadistics() {
   }, [useData.userTypes]);
 
   return (
-    <div className="w-full min-h-screen bg-bg-page">
+    <div className="w-full bg-bg-secondary">
       <Ringchart
         rings={rings}
         total={total}

@@ -23,7 +23,13 @@ interface Column {
 interface TableProps {
   title: string;
   data: any;
-  changeQueryParams: ({ limit, pageNumber, searchText }: { limit?: number; pageNumber?: number; searchText?: string }) => void,
+  changeQueryParams: ({ limit, pageNumber, searchText, sortColumn, sortOrder }: {
+    limit?: number;
+    pageNumber?: number;
+    searchText?: string;
+    sortColumn?: string;
+    sortOrder?: 'asc' | 'desc';
+  }) => void,
   total: number,
   loading: boolean,
   columns: Column[];
@@ -38,13 +44,15 @@ const Table = ({
   columns,
 }: TableProps) => {
   const [searchText, setSearchText] = useState<string>('');
+  const [sortColumn, setSortColumn] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
   /*
     -------------------- SEARCH --------------------
   */
   useEffect(() => {
     const timer = setTimeout(() => {
-      changeQueryParams({ limit: rowsPerPage, pageNumber: page + 1, searchText });
+      changeQueryParams({ limit: rowsPerPage, pageNumber: page + 1, searchText, sortColumn, sortOrder });
     }, 500);
 
     return () => clearTimeout(timer);
@@ -58,12 +66,21 @@ const Table = ({
 
   const handleOnchangePage = (newPage: number) => {
     setPage(newPage);
-    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage + 1, searchText })
+    changeQueryParams({ limit: rowsPerPage, pageNumber: newPage + 1, searchText, sortColumn, sortOrder })
   };
 
   const handleOnchangeRowsPerPage = (numberOfRows: number) => {
     setRowsPerPage(numberOfRows);
-    changeQueryParams({ limit: numberOfRows, pageNumber: page + 1, searchText })
+    changeQueryParams({ limit: numberOfRows, pageNumber: page + 1, searchText, sortColumn, sortOrder })
+  };
+
+  /*
+    -------------------- SORT --------------------
+  */
+  const handleColumnSort = (changedColumn: string, direction: 'asc' | 'desc') => {
+    setSortColumn(changedColumn);
+    setSortOrder(direction);
+    changeQueryParams({ limit: rowsPerPage, pageNumber: page + 1, searchText, sortColumn: changedColumn, sortOrder: direction });
   };
 
   /*
@@ -71,7 +88,7 @@ const Table = ({
   */
   const options: MUIDataTableOptions = useMemo(() => ({
     filter: false,
-    sort: false,
+    sort: true,
     search: false,
     searchText: searchText,
     searchOpen: false,
@@ -86,6 +103,7 @@ const Table = ({
     elevation: 0,
     onChangePage: handleOnchangePage,
     onChangeRowsPerPage: handleOnchangeRowsPerPage,
+    onColumnSortChange: handleColumnSort,
     setRowProps: (row: any, dataIndex: number) => ({
       style: {
         backgroundColor: dataIndex % 2 === 0 ? '#212121' : '#1a1a1a',
@@ -104,7 +122,7 @@ const Table = ({
   */
   const customTitle = (
     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-      <Typography variant="h6" component="div" className='!text-secondary'>
+      <Typography variant="h6" component="div" className='!text-primary'>
         {title}
       </Typography>
       <TextField
@@ -157,7 +175,7 @@ const Table = ({
     <div id="table-container">
       {loading && (
         <div>
-          <span className="text-white text-center">Loading...</span>
+          <span className="text-primary text-center">Loading...</span>
         </div>
       )}
       <MUIDataTable

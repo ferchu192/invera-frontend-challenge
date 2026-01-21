@@ -20,9 +20,9 @@ export const Legend: React.FC<LegendProps> = ({ rings }) => {
                 className="w-2 h-2 rounded-full flex-shrink-0"
                 style={{ backgroundColor: ring.color }}
               ></span>
-              <span className="text-sm font-normal text-white">{ring.label}</span>
+              <span className="text-sm font-normal text-primary">{ring.label}</span>
             </div>
-            <div className="text-sm font-semibold text-white text-right">{percentage}%</div>
+            <div className="text-sm font-semibold text-primary text-right">{percentage}%</div>
           </div>
         );
       })}

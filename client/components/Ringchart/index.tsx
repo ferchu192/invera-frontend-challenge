@@ -14,7 +14,7 @@ export const Ringchart: React.FC<RingchartProps> = ({
 }) => {
   return (
     <div className="flex gap-8 flex-col w-full">
-      <span className='text-white text-md font-bold text-[24px]'>
+      <span className='text-primary text-md font-bold text-[24px]'>
         {title}
       </span>
       <div className="flex flex-col sm:flex-row justify-around items-center gap-8">

@@ -20,11 +20,25 @@ const UserTable = () => {
     -------------------- PAGINATION --------------------
   */
   // Update de queryParams
-  const changeQueryParams = ({ limit, pageNumber, searchText } : { limit?: number, pageNumber?: number, searchText?: string }) => {
+  const changeQueryParams = ({
+    limit,
+    pageNumber,
+    searchText,
+    sortColumn,
+    sortOrder
+  } : {
+    limit?: number,
+    pageNumber?: number,
+    searchText?: string,
+    sortColumn?: string,
+    sortOrder?: 'asc' | 'desc'
+  }) => {
     useData.refetch({
       _page: pageNumber,
       _limit: limit,
       q: searchText,
+      _sort: sortColumn,
+      _order: sortOrder,
     });
   }
 
@@ -59,7 +73,7 @@ const UserTable = () => {
     <div id="table-container">
       {!data && (
         <div>
-          <span className="text-white text-center">Loading...</span>
+          <span className="text-primary text-center">Loading...</span>
         </div>
       )}
       <Table

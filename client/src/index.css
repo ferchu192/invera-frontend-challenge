@@ -64,6 +64,8 @@
 
 .MuiTypography-root {
   font-weight: bold !important;
+  font-size: 24px !important;
+  font-family: 'Sora', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
 }
 
 .MuiTableCell-root {

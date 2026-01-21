@@ -142,8 +142,8 @@ const Table = ({
           width: '352px',
           height: '42px',
           fontSize: '12px',
-          '@media (max-width: 430px)': {
-            width: '200px',
+          '@media (max-width: 603px)': {
+            width: '143px',
           },
           '& .MuiOutlinedInput-root': {
             height: '42px',

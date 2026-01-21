@@ -1,6 +1,5 @@
 export interface RingData {
   value: number;
-  maxValue: number;
   color: string;
   label: string;
 }

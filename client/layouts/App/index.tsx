@@ -22,9 +22,9 @@ const App = () => {
           Users
         </h1>
 
-        <button className="bg-button-primary w-[137px] text-white px-[16px] py-[8px]" onClick={() => setIsModalOpen(true)}>
+        {/* <button className="bg-button-primary w-[137px] text-white px-[16px] py-[8px]" onClick={() => setIsModalOpen(true)}>
           Add User
-        </button>
+        </button> */}
       </div>
 
       <Metrics />

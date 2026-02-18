@@ -54,9 +54,17 @@ export const api = {
      * @param params - Query parameters for pagination, search, sorting and filtering
      * @returns Promise with array of users
      */
-    getAll: (params?: PaginationParams): Promise<User[]> => {
-      const queryString = buildQueryString(params);
-      return fetchAPI<User[]>(`${API_BASE_URL}/users${queryString}`);
+    getAll: async (params?: PaginationParams): Promise<{ data: User[]; total: number }> => {
+      const queryString = buildQueryString(params as Record<string, unknown>);
+      const response = await fetch(`${API_BASE_URL}/users${queryString}`, {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const total = parseInt(response.headers.get('X-Total-Count') || '0', 10);
+      return { data, total };
     },
 
     /**

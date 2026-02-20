@@ -4,6 +4,7 @@ import type { User, PaginationParams } from '../types/api';
 
 interface UseUsersResult {
   users: User[];
+  total: number;
   loading: boolean;
   error: Error | null;
   refetch: (queryParams: PaginationParams) => void;
@@ -18,8 +19,8 @@ interface UseUsersResult {
  */
 export const useUsers = (params?: PaginationParams): UseUsersResult => {
   const [users, setUsers] = useState<User[]>([]);
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [total, setTotal] = useState<number>(0);
+const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   const [currentParams, setCurrentParams] = useState<PaginationParams>(params || { _page: 0, _limit: 10 });
 
@@ -28,8 +29,12 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
       setLoading(true);
       setError(null);
       setCurrentParams(queryParams);
-      const data = await api.users.getAll(queryParams);
+      const [{ data, total: fetchedTotal }] = await Promise.all([
+        api.users.getAll(queryParams),
+        new Promise((resolve) => setTimeout(resolve, 600)),
+      ]);
       setUsers(data);
+      setTotal(fetchedTotal);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch users'));
     } finally {
@@ -47,7 +52,6 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
       setLoading(true);
       setError(null);
       const data = await api.users.getById(id);
-      setUser(data);
       return data;
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch user'));
@@ -82,6 +86,7 @@ export const useUsers = (params?: PaginationParams): UseUsersResult => {
 
   return {
     users,
+    total,
     loading,
     error,
     refetch: fetchUsers,

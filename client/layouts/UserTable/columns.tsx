@@ -1,3 +1,4 @@
+
 // Interface
 import { UserBadgeProps } from '../../components/Badges/User';
 
@@ -29,7 +30,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
       (
         <ColumnHeader label="Phone" icon="phone" />
       ),
-      customBodyRender: (value: string) => <span className="text-primary weith">{value}</span>,
+      customBodyRender: (value: string) => <div className='px-4'><span className="text-primary weith">{value}</span></div>,
     }
   },
   {
@@ -40,7 +41,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
       (
         <ColumnHeader label="Location" icon="location" />
       ),
-      customBodyRender: (value: string) => <span className="text-primary">{value}</span>,
+      customBodyRender: (value: string) => <div className='px-4'><span className="text-primary">{value}</span></div>,
     }
   },
   {
@@ -51,7 +52,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
       (
         <ColumnHeader label="Company" icon="company" />
       ),
-      customBodyRender: (value: string) => <CompanyBadge company={value} />,
+      customBodyRender: (value: string) => <div className='px-4'><CompanyBadge company={value} /></div>,
     }
   },
   {
@@ -62,7 +63,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
       (
         <ColumnHeader label="Status" icon="status" />
       ),
-      customBodyRender: (value: string) => <StatusBadge status={value} />,
+      customBodyRender: (value: string) => <div className='px-4'><StatusBadge status={value} /></div>,
     }
   },
   {

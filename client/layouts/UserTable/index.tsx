@@ -88,7 +88,8 @@ const UserTable = () => {
         data={data}
         columns={columns}
         changeQueryParams={changeQueryParams}
-        total={50}
+        total={useData.total}
+        loading={useData.loading}
       />
     </div>
   )

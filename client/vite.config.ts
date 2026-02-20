@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/fernando-gimenez/responsive-challenge/',
   server: {
-    allowedHosts: ['b495-186-137-108-179.ngrok-free.app'],
+    allowedHosts: ['.ngrok-free.app'],
   },
 })

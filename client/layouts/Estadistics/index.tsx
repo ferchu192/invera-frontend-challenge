@@ -5,6 +5,7 @@ import { useUserTypes } from '../../src/hooks/useUserTypes';
 import { Ringchart } from '../../components/Ringchart';
 import { RingData } from '../../components/Ringchart/types';
 import { Distribution } from '../../src/types/api';
+import Loading from '../../components/Loading';
 
 const COLORS = ['#7B99FF', '#C9D7FD', '#28E384'];
 
@@ -29,6 +30,7 @@ function Estadistics() {
 
   return (
     <div className="w-full bg-bg-secondary">
+      {useData.loading && <Loading />}
       <Ringchart
         rings={rings}
         total={total}

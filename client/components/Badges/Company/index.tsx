@@ -1,5 +1,3 @@
-import { getRandomIntInclusive } from '../../../helpers/helper';
-
 export interface CompanyBadgeProps {
   company: {
     name: string;

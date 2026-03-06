@@ -10,7 +10,7 @@ interface CardProps {
 function Card({ title, count, iconPath, loading }: CardProps) {
   return (
     <>
-      <div className="w-full max-w-[398px] rounded-lg border-[0.6px] border-[#5F5F5F] bg-[#1A1A1A] p-5" style={{ position: 'relative' }}>
+      <div className="w-full max-w-full sm:max-w-[398px] rounded-lg border-[0.6px] border-[#5F5F5F] bg-[#1A1A1A] p-5" style={{ position: 'relative' }}>
         {loading && <Loading />}
         <div className="flex justify-between items-center">
           <div className='flex gap-2.5 text-left'>

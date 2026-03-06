@@ -3,7 +3,19 @@ import { useState, useMemo, useEffect } from 'react';
 
 // Components
 import MUIDataTable, { MUIDataTableOptions } from "mui-datatables";
-import { TextField, Box, Typography, InputAdornment } from '@mui/material';
+import { TextField, Box, Typography, InputAdornment, ThemeProvider, createTheme } from '@mui/material';
+
+const tableTheme = createTheme({
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+        },
+      },
+    },
+  },
+});
 
 import Loading from '../../components/Loading';
 // Footer
@@ -177,12 +189,14 @@ const Table = ({
       {loading && (
         <Loading />
       )}
-      <MUIDataTable
-        title={customTitle}
-        data={data}
-        columns={columns}
-        options={options}
-      />
+      <ThemeProvider theme={tableTheme}>
+        <MUIDataTable
+          title={customTitle}
+          data={data}
+          columns={columns}
+          options={options}
+        />
+      </ThemeProvider>
     </div>
   )
 }

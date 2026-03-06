@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react()],
   base: '/fernando-gimenez/responsive-challenge/',
   server: {
+    host: '0.0.0.0',  // Escucha en todas las interfaces
+    port: 5176,
     allowedHosts: ['.ngrok-free.app'],
   },
 })

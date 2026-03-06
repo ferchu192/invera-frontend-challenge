@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+
+  <!-- Background - menta suave -->
+  <rect width="32" height="32" rx="8" fill="#c7f0db"/>
+
+  <!-- HEAD -->
+  <circle cx="16" cy="7.5" r="4.5" fill="#f4c2a1"/>
+  <!-- Hair -->
+  <ellipse cx="16" cy="4.5" rx="4.5" ry="2.8" fill="#5c3d2e"/>
+
+  <!-- NECK -->
+  <rect x="14.2" y="11.5" width="3.6" height="2.5" rx="1" fill="#f4c2a1"/>
+
+  <!-- BODY / SHOULDERS -->
+  <path d="M8,14 Q8,13 16,13 Q24,13 24,14 L24,22 L8,22 Z" fill="#a8d8ea"/>
+
+  <!-- LAPTOP SCREEN -->
+  <rect x="8.5" y="15" width="15" height="7.5" rx="1.4" fill="#dbeeff"/>
+  <!-- Screen lines -->
+  <rect x="10" y="17" width="7" height="1.2" rx="0.6" fill="#7ec8e3"/>
+  <rect x="10" y="19" width="5" height="1.2" rx="0.6" fill="#7ec8e3"/>
+
+  <!-- LAPTOP BASE -->
+  <rect x="7" y="22" width="18" height="2.8" rx="1.4" fill="#b5c0d0"/>
+  <!-- Hinge line -->
+  <rect x="8.5" y="22" width="15" height="0.8" rx="0.4" fill="#8fa0b5"/>
+
+</svg>

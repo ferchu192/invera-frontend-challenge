@@ -1,6 +1,6 @@
 import type { User, Statistics, UserType, PaginationParams } from '../types/api';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
 
 /**
  * Utility function to build query string from parameters

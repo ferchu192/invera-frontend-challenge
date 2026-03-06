@@ -6,8 +6,9 @@
       "email": "john@example.com",
       "phone": "(123) 456-7890",
       "location": "United States",
-      "company": "Example Inc.",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 2,
@@ -15,8 +16,9 @@
       "email": "jane@example.com",
       "phone": "(456) 789-0123",
       "location": "Canada",
-      "company": "Example Inc.",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "phone": "(319) 098-9899",
       "location": "Australia",
       "company": "Facebook",
-      "status": "Offline"
+      "status": "Offline",
+      "avatar": 3
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "phone": "(540) 827-3880",
       "location": "India",
       "company": "Twitter",
-      "status": "Online"
+      "status": "Online",
+      "avatar": 4
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "phone": "(440) 410-3848",
       "location": "Canada",
       "company": "YouTube",
-      "status": "Offline"
+      "status": "Offline",
+      "avatar": 5
     },
     {
       "id": 6,
@@ -51,8 +56,9 @@
       "email": "andy@reddit.com",
       "phone": "(424) 458-3268",
       "location": "United States",
-      "company": "Reddit",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 7,
@@ -60,8 +66,9 @@
       "email": "lilly@spotify.com",
       "phone": "(361) 892-1819",
       "location": "Australia",
-      "company": "Spotify",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 8,
@@ -69,8 +76,9 @@
       "email": "patrick@pinterest.com",
       "phone": "(760) 882-5670",
       "location": "United Kingdom",
-      "company": "Pinterest",
-      "status": "Online"
+      "company": "Facebook",
+      "status": "Online",
+      "avatar": 3
     },
     {
       "id": 9,
@@ -78,8 +86,9 @@
       "email": "frances@twitch.com",
       "phone": "(236) 496-5864",
       "location": "Canada",
-      "company": "Twitch",
-      "status": "Offline"
+      "company": "Twitter",
+      "status": "Offline",
+      "avatar": 4
     },
     {
       "id": 12,
@@ -87,8 +96,9 @@
       "email": "emily@microsoft.com",
       "phone": "(206) 555-9876",
       "location": "United States",
-      "company": "Microsoft",
-      "status": "Offline"
+      "company": "YouTube",
+      "status": "Offline",
+      "avatar": 5
     },
     {
       "id": 13,
@@ -96,8 +106,9 @@
       "email": "lucas@tesla.com",
       "phone": "(650) 555-4321",
       "location": "Germany",
-      "company": "Tesla",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 14,
@@ -105,8 +116,9 @@
       "email": "yuki@sony.com",
       "phone": "(813) 555-8765",
       "location": "Japan",
-      "company": "Sony",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 15,
@@ -114,8 +126,9 @@
       "email": "camille@airbnb.com",
       "phone": "(331) 555-2468",
       "location": "France",
-      "company": "Airbnb",
-      "status": "Online"
+      "company": "Facebook",
+      "status": "Online",
+      "avatar": 3
     },
     {
       "id": 16,
@@ -123,8 +136,9 @@
       "email": "david@samsung.com",
       "phone": "(822) 555-1357",
       "location": "South Korea",
-      "company": "Samsung",
-      "status": "Offline"
+      "company": "Twitter",
+      "status": "Offline",
+      "avatar": 4
     },
     {
       "id": 17,
@@ -132,8 +146,9 @@
       "email": "isabella@adobe.com",
       "phone": "(339) 555-8642",
       "location": "Italy",
-      "company": "Adobe",
-      "status": "Online"
+      "company": "YouTube",
+      "status": "Online",
+      "avatar": 5
     },
     {
       "id": 18,
@@ -141,8 +156,9 @@
       "email": "aditya@tata.com",
       "phone": "(912) 555-9753",
       "location": "India",
-      "company": "Tata",
-      "status": "Offline"
+      "company": "Example Inc",
+      "status": "Offline",
+      "avatar": 1
     },
     {
       "id": 19,
@@ -150,8 +166,9 @@
       "email": "olivia@shopify.com",
       "phone": "(416) 555-3579",
       "location": "Canada",
-      "company": "Shopify",
-      "status": "Online"
+      "company": "Google",
+      "status": "Online",
+      "avatar": 2
     },
     {
       "id": 20,
@@ -159,8 +176,9 @@
       "email": "ahmed@aramco.com",
       "phone": "(966) 555-2468",
       "location": "Saudi Arabia",
-      "company": "Aramco",
-      "status": "Offline"
+      "company": "Facebook",
+      "status": "Offline",
+      "avatar": 3
     },
     {
       "id": 21,
@@ -168,8 +186,9 @@
       "email": "sophia@zoom.com",
       "phone": "(408) 555-1234",
       "location": "United States",
-      "company": "Zoom",
-      "status": "Online"
+      "company": "Twitter",
+      "status": "Online",
+      "avatar": 4
     },
     {
       "id": 22,
@@ -177,8 +196,9 @@
       "email": "hiroshi@nintendo.com",
       "phone": "(813) 555-5678",
       "location": "Japan",
-      "company": "Nintendo",
-      "status": "Offline"
+      "company": "YouTube",
+      "status": "Offline",
+      "avatar": 5
     },
     {
       "id": 23,
@@ -186,8 +206,9 @@
       "email": "fatima@adnoc.com",
       "phone": "(971) 555-9012",
       "location": "UAE",
-      "company": "ADNOC",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 24,
@@ -195,8 +216,9 @@
       "email": "thomas@bmw.com",
       "phone": "(498) 555-3456",
       "location": "Germany",
-      "company": "BMW",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 25,
@@ -204,8 +226,9 @@
       "email": "maria@petrobras.com",
       "phone": "(551) 555-7890",
       "location": "Brazil",
-      "company": "Petrobras",
-      "status": "Online"
+      "company": "Facebook",
+      "status": "Online",
+      "avatar": 3
     },
     {
       "id": 26,
@@ -213,8 +236,9 @@
       "email": "daniel@lg.com",
       "phone": "(822) 555-2345",
       "location": "South Korea",
-      "company": "LG",
-      "status": "Offline"
+      "company": "Twitter",
+      "status": "Offline",
+      "avatar": 4
     },
     {
       "id": 27,
@@ -222,8 +246,9 @@
       "email": "emma@canva.com",
       "phone": "(612) 555-6789",
       "location": "Australia",
-      "company": "Canva",
-      "status": "Online"
+      "company": "YouTube",
+      "status": "Online",
+      "avatar": 5
     },
     {
       "id": 28,
@@ -231,8 +256,9 @@
       "email": "liu@alibaba.com",
       "phone": "(861) 555-0123",
       "location": "China",
-      "company": "Alibaba",
-      "status": "Offline"
+      "company": "Example Inc",
+      "status": "Offline",
+      "avatar": 1
     },
     {
       "id": 29,
@@ -240,8 +266,9 @@
       "email": "sarah@slack.com",
       "phone": "(415) 555-4567",
       "location": "United States",
-      "company": "Slack",
-      "status": "Online"
+      "company": "Google",
+      "status": "Online",
+      "avatar": 2
     },
     {
       "id": 30,
@@ -249,8 +276,9 @@
       "email": "mohammed@qatar.com",
       "phone": "(974) 555-8901",
       "location": "Qatar",
-      "company": "Qatar Airways",
-      "status": "Offline"
+      "company": "Facebook",
+      "status": "Offline",
+      "avatar": 3
     },
     {
       "id": 31,
@@ -258,8 +286,9 @@
       "email": "ana@telefonica.com",
       "phone": "(349) 555-2345",
       "location": "Spain",
-      "company": "Telefonica",
-      "status": "Online"
+      "company": "Twitter",
+      "status": "Online",
+      "avatar": 4
     },
     {
       "id": 32,
@@ -267,8 +296,9 @@
       "email": "james@atlassian.com",
       "phone": "(612) 555-6789",
       "location": "Australia",
-      "company": "Atlassian",
-      "status": "Offline"
+      "company": "YouTube",
+      "status": "Offline",
+      "avatar": 5
     },
     {
       "id": 33,
@@ -276,8 +306,9 @@
       "email": "priya@infosys.com",
       "phone": "(918) 555-0123",
       "location": "India",
-      "company": "Infosys",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 34,
@@ -285,8 +316,9 @@
       "email": "carlos@pemex.com",
       "phone": "(525) 555-4567",
       "location": "Mexico",
-      "company": "Pemex",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 35,
@@ -294,8 +326,9 @@
       "email": "natalie@baidu.com",
       "phone": "(861) 555-8901",
       "location": "China",
-      "company": "Baidu",
-      "status": "Online"
+      "company": "Facebook",
+      "status": "Online",
+      "avatar": 3
     },
     {
       "id": 36,
@@ -303,8 +336,9 @@
       "email": "raj@wipro.com",
       "phone": "(918) 555-2345",
       "location": "India",
-      "company": "Wipro",
-      "status": "Offline"
+      "company": "Twitter",
+      "status": "Offline",
+      "avatar": 4
     },
     {
       "id": 37,
@@ -312,8 +346,9 @@
       "email": "chloe@loreal.com",
       "phone": "(331) 555-6789",
       "location": "France",
-      "company": "L'Oreal",
-      "status": "Online"
+      "company": "YouTube",
+      "status": "Online",
+      "avatar": 5
     },
     {
       "id": 38,
@@ -321,8 +356,9 @@
       "email": "antonio@ferrari.com",
       "phone": "(399) 555-0123",
       "location": "Italy",
-      "company": "Ferrari",
-      "status": "Offline"
+      "company": "Example Inc",
+      "status": "Offline",
+      "avatar": 1
     },
     {
       "id": 39,
@@ -330,8 +366,9 @@
       "email": "elizabeth@hsbc.com",
       "phone": "(447) 555-4567",
       "location": "United Kingdom",
-      "company": "HSBC",
-      "status": "Online"
+      "company": "Google",
+      "status": "Online",
+      "avatar": 2
     },
     {
       "id": 40,
@@ -339,8 +376,9 @@
       "email": "andre@embraer.com",
       "phone": "(551) 555-8901",
       "location": "Brazil",
-      "company": "Embraer",
-      "status": "Offline"
+      "company": "Facebook",
+      "status": "Offline",
+      "avatar": 3
     },
     {
       "id": 41,
@@ -348,8 +386,9 @@
       "email": "sven@spotify.com",
       "phone": "(468) 555-2345",
       "location": "Sweden",
-      "company": "Spotify",
-      "status": "Online"
+      "company": "Twitter",
+      "status": "Online",
+      "avatar": 4
     },
     {
       "id": 42,
@@ -357,8 +396,9 @@
       "email": "mei@tencent.com",
       "phone": "(861) 555-6789",
       "location": "China",
-      "company": "Tencent",
-      "status": "Offline"
+      "company": "YouTube",
+      "status": "Offline",
+      "avatar": 5
     },
     {
       "id": 43,
@@ -366,8 +406,9 @@
       "email": "gabriel@vale.com",
       "phone": "(551) 555-0123",
       "location": "Brazil",
-      "company": "Vale",
-      "status": "Online"
+      "company": "Example Inc",
+      "status": "Online",
+      "avatar": 1
     },
     {
       "id": 44,
@@ -375,8 +416,9 @@
       "email": "nina@gazprom.com",
       "phone": "(749) 555-4567",
       "location": "Russia",
-      "company": "Gazprom",
-      "status": "Offline"
+      "company": "Google",
+      "status": "Offline",
+      "avatar": 2
     },
     {
       "id": 45,
@@ -384,8 +426,9 @@
       "email": "roberto@santander.com",
       "phone": "(349) 555-8901",
       "location": "Spain",
-      "company": "Santander",
-      "status": "Online"
+      "company": "Facebook",
+      "status": "Online",
+      "avatar": 3
     },
     {
       "id": 46,
@@ -393,8 +436,9 @@
       "email": "amara@mtn.com",
       "phone": "(234) 555-2345",
       "location": "Nigeria",
-      "company": "MTN",
-      "status": "Offline"
+      "company": "Twitter",
+      "status": "Offline",
+      "avatar": 4
     },
     {
       "id": 47,
@@ -402,8 +446,9 @@
       "email": "benjamin@nab.com",
       "phone": "(612) 555-6789",
       "location": "Australia",
-      "company": "NAB",
-      "status": "Online"
+      "company": "YouTube",
+      "status": "Online",
+      "avatar": 5
     },
     {
       "id": 48,
@@ -411,8 +456,9 @@
       "email": "rana@tcs.com",
       "phone": "(918) 555-0123",
       "location": "India",
-      "company": "TCS",
-      "status": "Offline"
+      "company": "Example Inc",
+      "status": "Offline",
+      "avatar": 1
     },
     {
       "id": 49,
@@ -420,8 +466,9 @@
       "email": "lina@sabic.com",
       "phone": "(966) 555-4567",
       "location": "Saudi Arabia",
-      "company": "SABIC",
-      "status": "Online"
+      "company": "Google",
+      "status": "Online",
+      "avatar": 2
     },
     {
       "id": 50,
@@ -429,8 +476,9 @@
       "email": "mahmoud@elsewedy.com",
       "phone": "(202) 555-8901",
       "location": "Egypt",
-      "company": "Elsewedy",
-      "status": "Offline"
+      "company": "Facebook",
+      "status": "Offline",
+      "avatar": 3
     }
   ],
   "statics": {

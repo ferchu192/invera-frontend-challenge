@@ -9,7 +9,7 @@ import { useUsers } from '../../src/hooks/useUsers';
 import { userColumns } from './columns';
 
 // Helpers
-import { getRandomIntInclusive } from '../../helpers/helper';
+// import { getRandomIntInclusive } from '../../helpers/helper';
 
 const UserTable = () => {
   const useData = useUsers();
@@ -55,13 +55,12 @@ const UserTable = () => {
         user: {
           name: user.name,
           email: user.email,
-          icon: getRandomIntInclusive(user.id),
+          icon: user.avatar,
         },
         phone: user.phone,
         location: user.location,
         company: {
           name: user.company,
-          id: user.id,
         },
         status: user.status,
         actions: {
@@ -78,11 +77,6 @@ const UserTable = () => {
   */
   return (
     <div id="table-container">
-      {!data && (
-        <div>
-          <span className="text-primary text-center">Loading...</span>
-        </div>
-      )}
       <Table
         title="All Users"
         data={data}

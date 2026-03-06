@@ -25,8 +25,8 @@ const ActionColumn = ({id, name, onDelete}: ActionProps) => {
   }
   return (
     <div className="flex items-center gap-[8px]">
-      <img src="public/table/edit.svg" alt="edit" className="w-[12px] h-[12px]" />
-      <img src="public/table/delete.svg" alt="delete" className="w-[12px] h-[12px] pointer" onClick={() => setIsModalOpen(true)}/>
+      <img src={`${import.meta.env.BASE_URL}table/edit.svg`} alt="edit" className="w-[12px] h-[12px]" />
+      <img src={`${import.meta.env.BASE_URL}table/delete.svg`} alt="delete" className="w-[12px] h-[12px] pointer" onClick={() => setIsModalOpen(true)}/>
 
       <Modal
         isOpen={isModalOpen}

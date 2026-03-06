@@ -104,7 +104,7 @@ const Table = ({
     onChangePage: handleOnchangePage,
     onChangeRowsPerPage: handleOnchangeRowsPerPage,
     onColumnSortChange: handleColumnSort,
-    setRowProps: (row: any, dataIndex: number) => ({
+    setRowProps: (_row: any, dataIndex: number) => ({
       style: {
         backgroundColor: dataIndex % 2 === 0 ? '#212121' : '#1a1a1a',
         borderBottom: '1px solid #5F5F5F',
@@ -134,7 +134,7 @@ const Table = ({
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <img src="public/table/search.svg" alt="search" style={{ width: '20px', height: '20px' }} />
+              <img src={`${import.meta.env.BASE_URL}table/search.svg`} alt="search" style={{ width: '20px', height: '20px' }} />
             </InputAdornment>
           ),
         }}

@@ -52,7 +52,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
       (
         <ColumnHeader label="Company" icon="company" />
       ),
-      customBodyRender: (value: string) => <div className='px-4'><CompanyBadge company={value} /></div>,
+      customBodyRender: (value: {name: string, id: number}) => <div className='px-4'><CompanyBadge company={value} /></div>,
     }
   },
   {

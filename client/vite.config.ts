@@ -10,4 +10,15 @@ export default defineConfig({
     port: 5176,
     allowedHosts: ['.ngrok-free.app'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'mui-core': ['@mui/material', '@mui/system', '@emotion/react', '@emotion/styled'],
+          'mui-datatables': ['mui-datatables'],
+        },
+      },
+    },
+  },
 })

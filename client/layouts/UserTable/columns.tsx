@@ -68,7 +68,7 @@ export const userColumns = (onDelete: (id: number | string) => Promise<void>) =>
   },
   {
     name: 'actions',
-    label: '',
+    label: ' ',
     options: {
       sort: false,
       customBodyRender: (value: ActionProps) => {
